@@ -3,7 +3,8 @@ class test:
         pass
 
 def main():
-    pass
+    non_v =1
+    print(non_v)
 
 if __name__ == '__main__':
     main()
