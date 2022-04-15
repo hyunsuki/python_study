@@ -1,5 +1,4 @@
-#!/usr/local/bin/python3
-# -*- coding: encoding -*-
+#!/usr/loacal/bin/python3.8
 from pyc_test import Color
 
 class StudyManager:
