@@ -1,12 +1,13 @@
 import unittest
 
+
 class MyTestCase(unittest.TestCase):
 
     def test_func_equal(self):
-        self.assertEqual(1,1)
+        self.assertEqual(1, 1)
 
     def test_func_not_equal(self):
-        self.assertNotEqual(1,2)
+        self.assertNotEqual(1, 2)
 
     @unittest.skip('reason')
     def test_func_true(self):
@@ -18,10 +19,10 @@ class MyTestCase(unittest.TestCase):
         self.assertFalse(word.islower())
 
     def test_func_is(self):
-        self.assertIs(1,1)
+        self.assertIs(1, 1)
 
     def test_func_is_not(self):
-        self.assertIsNot(1,2)
+        self.assertIsNot(1, 2)
 
     def test_func_none(self):
         self.assertIsNone(None)
@@ -47,4 +48,4 @@ class MyTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-   unittest.main()
+    unittest.main()
