@@ -1,10 +1,10 @@
-from icecream import ic
-
-
 def main():
-    ic('ab c\n\nde fg\rkl\r\n'.splitlines())
-    ic('ab c\n\nde fg\rkl\r\n'.splitlines(keepends=True))
-    ic('ab c\n\nde fg\rkl\r\n'.split('\n'))
+    test_text = 'ab c\n\nde fg\rkl\r\n'
+    sep = '\n'
+    print(f'test text :: {test_text}')
+    print(f'use split() by \\n :: {test_text.split(sep)}')
+    print(f'test_text.splitlines() :: {test_text.splitlines()}')
+    print(f'test_text.splitlines(keepends=True) :: {test_text.splitlines(keepends=True)}')
 
 
 if __name__ == '__main__':
