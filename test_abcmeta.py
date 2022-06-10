@@ -36,7 +36,7 @@ def main():
     '''프록시 객체'''
     pc = ProxyClass()
     print(pc.add(100, 25))
-#    print(pc.sub(100, 25))
+    print(pc.sub(100, 25))
 
 
 if __name__ == '__main__':
