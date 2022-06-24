@@ -1,13 +1,17 @@
+#!/usr/bin/python3
+# -*- conding: utf-8 -*-
+
+
 class Singleton(object):
     __instance = None
 
     def __init__(self):
 
         if not Singleton.__instance:
-            print('No object yet')
+            print('Instance exist yet')
 
         else:
-            print('Object already exist', self.get_instance())
+            print('Instance already exist', self.get_instance())
 
     @classmethod
     def get_instance(cls):
@@ -17,9 +21,11 @@ class Singleton(object):
 
 
 def main():
-    s = Singleton()  # 클래스 초기화는 했지만, 아직 객체 생성x
-    print('Create Object', Singleton.get_instance())
-    s1 = Singleton()
+    print('Get Instance...  s1 = Singleton.get_instance()')
+    s1 = Singleton.get_instance()
+    print('Get Instance...  s2 = Singleton.get_instance()')
+    s2 = Singleton.get_instance()
+    print(f'Is id(s1) == id(s2)?? {id(s1) == id(s2)}')
 
 
 if __name__ == '__main__':

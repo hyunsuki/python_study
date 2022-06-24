@@ -1,4 +1,6 @@
 import sys
+#!/usr/bin/python3
+# -*- encoding: utf-8 -*-
 
 
 class _constant:

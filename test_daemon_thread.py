@@ -1,6 +1,8 @@
-class TestGit:
-    def __init__(self):
-        pass
+import threading
+
+
+class Test:
+    def __init__(self): pass
 
 
 def main():

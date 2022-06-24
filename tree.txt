@@ -1,0 +1,92 @@
+.
+├── README.md
+├── __pycache__
+│   ├── character.cpython-36.pyc
+│   ├── constant.cpython-38.pyc
+│   ├── main.cpython-36.pyc
+│   ├── test_abcmeta.cpython-36.pyc
+│   ├── test_assert.cpython-36.pyc
+│   ├── test_by_unit.cpython-36.pyc
+│   ├── test_condition.cpython-36.pyc
+│   └── test_module.cpython-36.pyc
+├── constant.py
+├── main.py
+├── model
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-36.pyc
+│   │   ├── character.cpython-36.pyc
+│   │   └── status.cpython-36.pyc
+│   ├── character.py
+│   └── status.py
+├── new_file.py
+├── shuffle_deck_result.txt
+├── stdout.txt
+├── test
+│   ├── __init__.py
+│   └── __pycache__
+│       └── character.cpython-36.pyc
+├── test_abc_error.py
+├── test_abcmeta.py
+├── test_address.py
+├── test_assert.py
+├── test_backslash_formatting.py
+├── test_bcrypt.py
+├── test_by_unit.py
+├── test_call_path.py
+├── test_class_style.py
+├── test_class_var.py
+├── test_class_var2.py
+├── test_classmethod_vs_notImplementError.py
+├── test_condition.py
+├── test_coroutine.py
+├── test_daemon_thread.py
+├── test_debug.py
+├── test_directory
+│   ├── __pycache__
+│   │   └── test_module.cpython-36.pyc
+│   └── test_module.py
+├── test_duck_typing.py
+├── test_duck_typing2.py
+├── test_file_obj_vs_readlines.py
+├── test_file_read.py
+├── test_file_read_reverse.py
+├── test_final.py
+├── test_gc.py
+├── test_git_commit_reset.py
+├── test_linesep.py
+├── test_linesep.txt
+├── test_mock.py
+├── test_module.py
+├── test_module__dict__.py
+├── test_monkey_patching.py
+├── test_monkey_patching2.py
+├── test_multiprocessing.py
+├── test_mutex_semaphore.py
+├── test_mypy.py
+├── test_mypy2.py
+├── test_pbkdf2.py
+├── test_pdb.py
+├── test_proxy.py
+├── test_race_condition.py
+├── test_readline.py
+├── test_reference_cycles.py
+├── test_singleton.py
+├── test_singleton2.py
+├── test_singleton3.py
+├── test_splitlines.py
+├── test_startswith.py
+├── test_static.py
+├── test_static2.py
+├── test_str_concatenation.py
+├── test_stringio.py
+├── test_stringio2.py
+├── test_subclassing.py
+├── test_subclassing2.py
+├── test_type_hint.py
+├── test_weakref_dict.py
+├── test_weakref_list.py
+├── test_yield.py
+└── tree.txt
+
+7 directories, 82 files
