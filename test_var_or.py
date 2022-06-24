@@ -20,3 +20,6 @@ if __name__ == '__main__':
     test_class = TestClass()
     print('Test case 2 :: main(test_class)')
     main(test_class)
+
+    print(id(main(None)) == id(main(test_class)))
+    print(id(main(test_class)) == id(main(test_class)))

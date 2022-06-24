@@ -1,0 +1,110 @@
+ole_start.sh
+  - python game.py console
+bot_start.sh
+  - python game.py bot 10
+game.py
+  - engine.run()
+engine/
+  - console
+  - bot
+pageManager.py
+pageInfo.py
+pageMap.py
+conifg
+  - page_info.dat
+   0,start
+   1,exit
+   2,intsall
+   3,create user
+   4,create charactor
+  - page_map.dat
+   0,1,2
+   2,3
+   3,4
+CsvLoader.py
+
+config/game.conf
+   [default]
+   page_info_path = xxxx
+   page_map_path = xxxx
+
+   [storage]
+   ip = xxx.xxx.xxx.xx
+   port = 3306
+   user = test
+   password = 123123123
+
+
+
+class ConfigManager :
+
+   def __init__(self) :
+      self.config_file = 'config/game.conf'
+      self.load()
+      
+   def load(self) :
+      conf = ConfigPasrer()
+      conf.load(self.config_file)
+      self.default_path_info_path = conf['default']['page_info_path']
+      self.default_path_map_path = conf['default']['page_map_path']
+
+class Console :
+   
+   def __init__(self) :
+       self.config = ConfigPasrer()
+       self.pageManager = PageManager(self.config.default_path_info_path,self.config.default_path_map_path)
+   
+
+   def run(self) :
+      while not IS_SHUTDOWN :
+         self.pageManager.getPages()
+         n = input('push number')
+         
+         // input n action
+         
+  
+class PageManager :
+   page_info = None
+   page_map = None
+   page_curr = 0
+
+   def __init__(self, page_info_path, page_map_path) :
+      if self.page_info == None :
+         self.page_info = PageInfo(page_info_path)
+      if self.page_map == None :
+         self.page_map = PageMap(page_map_path)
+
+   def getPages(self) :
+      title = self.page_info.getName(self.page_curr)
+      page_next_list = self.page_map.getNextPage(self.page_curr)
+
+      print('='*5,title,'='*5,'\n')
+      for (index, next_page_id) in enumerate(page_next_list) :
+         print('%2d %s\n' % (index, self.page_info.getName(next_page_id)))
+         
+   def changePage(page_id) :
+      self.page_curr = page_id
+
+class PageInfo :
+
+   _infos = {}
+
+   def __init__(self, file_path) :
+      for (page_id, page_name) in CsvLoader.load(file_path) :
+         _infos.setdefault(int(page_id), page_name)
+         
+   def getName(id) :
+      return __infos[id]
+
+class PageMap :
+
+   _infos = {}
+
+   def __init__(self, file_path) :
+      for values in CsvLoader.load(file_path) :
+         page_id = values[0]
+         page_next = values[1:]
+         _infos.setdefault(int(page_id), page_next)
+         
+   def getNextPage(id) :
+      return __infos[id]
