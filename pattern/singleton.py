@@ -6,7 +6,10 @@ class Singleton:
     __instance = None
 
     def __init__(self):
-        print('Instance exist yet')
+        if not Singleton.__instance:
+            print('Create instance')
+        else:
+            print('Instance exist yet', self.getInstance())
 
     @classmethod
     def getInstance(cls, *args, **kwargs):
@@ -15,9 +18,6 @@ class Singleton:
 
 
 class TestClass(Singleton):
-
-    def __init__(self):
-        Singleton.__init__(self)
 
     @classmethod
     def sayWord(self, word):
