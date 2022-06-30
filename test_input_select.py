@@ -4,6 +4,7 @@
 
 import sys
 from select import select
+from io import StringIO
 
 
 class KeyBoard:
@@ -12,12 +13,15 @@ class KeyBoard:
         self.time_out = 5
 
     def getInput(self):
-        i, o, e = select([sys.stdin], [], [], self.time_out)
-        if (i): print("INPUT INDEX : ", sys.stdin.readline().strip())
+        input_value = sys.stdin
+        io = StringIO()
+        i, o, e = select([input_value], [], [], self.time_out)
+        if (i):
+            print(input_value.readline().strip(), file=io, end="")
+            return io.getvalue()
 
-        else: print("INPUT INDEX NOTHING... TIME OUT")
-
-        return i[0]
+        else:
+            print("INPUT INDEX NOTHING... TIME OUT")
 
 
 def main():
