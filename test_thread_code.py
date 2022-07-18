@@ -59,4 +59,4 @@ while not keyboard.is_shutdown :
     for input_number in keyboard.get() :
         print(f'keyboard input : {input_number}')
 
-keyboard.join()
+keyboard.join(timeout=1)

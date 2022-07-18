@@ -1,19 +1,18 @@
 #!/usr/bin/python3
 # -*- conding: utf-8 -*-
 
+from threading import Lock
+ 
 
 class Singleton:
     __instance = None
-
-    def __init__(self):
-        if not Singleton.__instance:
-            print('Create instance')
-        else:
-            print('Instance exist yet', self.getInstance())
+    __lock = Lock()
 
     @classmethod
     def getInstance(cls, *args, **kwargs):
-        cls.__instance = cls.__instance or cls(*args, **kwargs)
+        with cls.__lock:
+            if cls.__instance is None:
+                cls.__instance = cls(*args, **kwargs)
         return cls.__instance
 
 
