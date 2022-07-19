@@ -8,13 +8,6 @@ class Topics:
     INSTALLINFOS = 0
     FILEDOWNLOADINFOS = 1
     BUYINFOS = 2
-    CONTENTACTINFOS = 3
-    RESOURCECHANGEINFOS = 4
-    VMONEYCHANGEINFOS = 5
-    ITEMCHANGEINFOS = 6
-    CONNECTINFOS = 7
-    ADPERFORMINFOS = 8
-    FRIENDSHIPINFOS = 9
 
 
 class Sdk:
@@ -23,13 +16,6 @@ class Sdk:
               Topics.INSTALLINFOS: self.install
             , Topics.FILEDOWNLOADINFOS: self.filedownload
             , Topics.BUYINFOS: self.buy
-            , Topics.CONTENTACTINFOS: self.contentact
-            , Topics.RESOURCECHANGEINFOS: self.resourcechange
-            , Topics.VMONEYCHANGEINFOS: self.vmoneychange
-            , Topics.ITEMCHANGEINFOS: self.itemchange
-            , Topics.CONTENTINFOS: self.content
-            , Topics.ADPERFORMINFOS: self.adperform
-            , Topics.FRIENDSHIPINFOS: self.friendship
         }
 
     def sendToApi(self, topic_obj, **kwargs):
@@ -37,27 +23,25 @@ class Sdk:
          topic
 
     def install(self):
+        print('install')
 
     def filedownload(self):
+        print('filedownload')
 
     def buy(self):
+        print('buy')
 
-    def contentact(self):
-
-    def resourceChang(self):
-
-    def vmoneychange(self):
-
-    def itemchange(self):
-
-    def connect(self):
-
-    def adperform(self):
-
-    def friendship(self):
 
 class Api:
     def __init__(self): pass
+
+
+class Test:
+    test = 1
+    def __init__(self):
+        self.a = 1
+        self.b = 2
+        self.c = 3
 
 
 def main(): pass
