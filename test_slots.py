@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+import ipython_memory_usage.ipython_memory_usage as imu
+
 
 class WithoutSlots:
     def __init__(self, name, identifier):
@@ -16,6 +18,10 @@ class WithSlots:
 
 
 def main():
+    num = 1024*256
+    x = [WithoutSlots(1, 1) for i in range(num)]
+    y = [WithSlots(1, 1) for i in range(num)]
+
     import traceback
     without_slot = WithoutSlots(1, 1)
     print(f"without_slot.__dict__ :: {without_slot.__dict__}\n")
