@@ -40,4 +40,11 @@ class Channel:
 class PowerOncommand(Command):
 
     @classmethod
-    def excute(cls): 
+    def excute(cls): pass
+
+
+def main(): pass
+
+
+if __name__ == '__main__':
+    main() 
