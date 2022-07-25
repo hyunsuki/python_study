@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+from enum import Enum
+
+
+class TestClass:
+    def __init__(self):
+        pass
+
+    def getNameUseType(self):
+        return type(self).__name__
+
+    def getNameUseClass(self):
+        return self.__class__.__name__
+
+
+class TestEnumClass(Enum):
+    Test1 = 'test'
+
+    @classmethod
+    def getName(cls):
+        return dir(cls.__class__.__name__.__getitem__)
+
+
+def main():
+#    tc = TestClass()
+#    print(f"tc.getNameUseType() :: {tc.getNameUseType()}")
+#    print(f"tc.getNameUseClass() :: {tc.getNameUseClass()}")
+
+    print(TestEnumClass.getName())
+
+
+if __name__ == '__main__':
+    main()
