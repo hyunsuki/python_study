@@ -15,19 +15,15 @@ class TestClass:
         return self.__class__.__name__
 
 
-class CustomEunm(Enum):
+class CustomEnum(Enum):
     @classmethod
-    def getName(cls):
-#        return dir(cls.__class__)
-        return cls.__class__.__members__
+    def getClsName(cls):
+        return list(cls.__members__.values())[0].__class__.__name__
 
 
-class TestEnumClass(Enum):
+class TestEnumClass(CustomEnum):
     Test1 = 'test1'
     Test2 = 'test2'
-
-    def getClsName():
-        return TestEnumClass.Test1.__class__.__name__
 
 
 def main():
