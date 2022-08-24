@@ -1,0 +1,12 @@
+Filename: test_memory_profile.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    10     16.3 MiB     16.3 MiB           1   @profile(stream=f)
+    11                                         def my_func():
+    12     23.8 MiB      7.5 MiB           1       a = [1] * (10 ** 6)
+    13    176.4 MiB    152.5 MiB           1       b = [2] * (2 * 10 ** 7)
+    14     23.9 MiB   -152.4 MiB           1       del b
+    15     23.9 MiB      0.0 MiB           1       return a
+
+
