@@ -7,39 +7,50 @@ import secrets
 from datetime import datetime
 
 
+class Vo:
+    def __init__(self, a, b, c, d, e):
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+
+    def getLen(self): return len(self.__dict__)
+
+    def getList(self): return list(self.__dict__.values())
+
+
 class Utils:
 
-    def __init__(self, data_list):
-        self.time_format = "%Y-%m-%d %M:%M:%S.%f"
-        self.data_list = data_list
-        self.weights = self.getRandomWeights()
+    def __init__(self, data_vo):
+        self.data_vo = data_vo
+        self.weights = Weights()
+        self.__setRandomWeights()
+        print(f"probabilltys :: {self.weights.probabilltys}")
 
     def getRandom(self):
-        return self.data_list[self.getRandomIndex()]
+        return np.random.choice(self.data_vo.getList(), 1, p=self.weights.probabilltys)
 
-    def getRandomIndex(self):
-        indexs = [index for index in range(len(self.data_list))]
-        random_p = self.weights
-        a = np.random.choice(indexs, len(self.data_list), p=random_p)
-        return random.choice(a)
-
-    def getRandomWeights(self):
-        weights = []
+    def __setRandomWeights(self):
         p = 1.0
-        # list의 요소 개수만큼 random weight 생성
-        for i in range(len(self.data_list)):
-            if i == len(self.data_list)-1: rand_p = p
+        for i in range(self.data_vo.getLen()):
+            # 마지막 실행
+            if i == self.data_vo.getLen()-1: rand_p = p
             else: rand_p = random.uniform(0, p)
-            weights.append(rand_p)
+            self.weights.probabilltys.append(rand_p)
             p = p-rand_p
-        print(weights)
-        print("")
-        return weights       
+
+
+class Weights:
+
+    def __init__(self):
+        self.probabilltys = []
 
 
 def main():
-    test_data = [1, 2, 3, 4, 5]
-    num = 10000
+    test_data = Vo(1, 2, 3, 4, 5)
+
+    num = 100000
 
     u = Utils(test_data)
 
@@ -47,7 +58,7 @@ def main():
     for i in range(0, num):
         result.append(u.getRandom())
 
-    for param in test_data:
+    for param in test_data.getList():
         print(f"{param} 확률 :: {result.count(param)/num}")
 
 
