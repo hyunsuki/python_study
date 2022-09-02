@@ -2,27 +2,28 @@
 # -*- coding: utf-8 -*-
 
 import tracemalloc
-import waste_memory
 
 
 class Test:
-    def __init__(self):
-        tracemalloc.start(10)
-        self.time1 = tracemalloc.take_snapshot()
-        import waste_memory
-        x = waste_memory.run()
-        self.time2 = tracemalloc.take_snapshot()
+    def __init__(self, num):
+        self.result = []
+        self.num = num
 
-    def getStats(self):
-        stats = self.time2.compare_to(self.time1, 'lineno')
-        for stat in stats[:3]:
-            print(stat)
+        for i in range(self.num):
+            self.result.append(i)
 
+    def getResult(self): return self.result
 
 def main():
-    t = Test()
-    t.getStats()
+    tracemalloc.start()
+ 
+    t = Test(1000)
 
+    snapshot = tracemalloc.take_snapshot()
+    top_stats = snapshot.statistics('lineno')
+
+    print('[ TOP 10 ]')
+    for stat in top_stats[:10]: print(stat)
 
 if __name__ == "__main__":
     main()
