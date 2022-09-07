@@ -14,17 +14,22 @@ class Test:
         self.test_2 = None
         self.test_3 = None
 
-        self.setConfig(conf, self.test_1, 'TEST', 'test_1', 'test.conf')
-        self.setConfig(conf, self.test_2, 'TEST', 'test_2', 1)
-        self.setConfig(conf, self.test_3, 'TEST', 'test_3', 2)
+        self.setTest1(conf, 'TEST', 'test_1')
+        self.setTest2(conf, 'TEST', 'test_2')
+        self.setTest3(conf, 'TEST', 'test_3')
         print('Test class init success')
 
     def setConfig(self, conf, var, section, option, default):
         var = default if not conf.has_option(section, option) else int(conf[section][option]) if option == 'test_2' or option == 'test_3' else conf[section][option]
         
-        print(f"var name :: {nameof(var)}")
-        print(f"var :: {var}")
-        print(f"var's type :: {type(var)}")
+    def setTest1(self, conf):
+        self.test_1 = conf['TEST']['test_1'] if conf.has_option('TEST', 'test_1') else 'test.conf'
+
+    def setTest2(self, conf, section, option):
+        self.test_2 = int(conf[section][option]) if conf.has_option(section, option) else 1
+
+    def setTest3(self, conf, section, option):
+        self.test_3 = int(conf[section][option]) if conf.has_option(section, option) else 2
 
 
 def main():
